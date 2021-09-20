@@ -5,11 +5,11 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¦ÌVision V5.23.0.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: keil FUN, keil, LIC=76F5U-SUTL7-566Q2-9UEK2-9VMYK-361B6
+License Information: 1 1, 1, LIC=9N0AR-KW6I5-KUU4L-042DA-4GU9K-VI7BX
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.23
-Toolchain Path:  D:\EnglishPath\MDK5\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Professional  Version: 5.23
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 4 (build 422)
 Assembler:       Armasm.exe V5.06 update 4 (build 422)
 Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
@@ -21,16 +21,35 @@ Target DLL:      CMSIS_AGDI.dll V1.27.5.0
 Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
-E:\file\competition\RM\2021Èü¼¾\code\code_reconsitut\New_Legends\MDK-ARM\standard_robot.uvprojx
-Project File Date:  08/31/2021
+C:\github\New_Legends\MDK-ARM\standard_robot.uvprojx
+Project File Date:  09/18/2021
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\EnglishPath\MDK5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'standard_robot'
 compiling calibrate_task.c...
 ..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
   extern void software_reset();
 ..\application\calibrate_task.c: 1 warning, 0 errors
+compiling chassis_task.c...
+..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
+  extern void software_reset();
+..\application\chassis_behaviour.h(88): warning:  #47-D: incompatible redefinition of macro "SWING_KEY"  (declared at line 85 of "..\application\chassis_task.h")
+  #define SWING_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_C) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_C))
+..\application\chassis_behaviour.h(90): warning:  #47-D: incompatible redefinition of macro "TOP_KEY"  (declared at line 87 of "..\application\chassis_task.h")
+  #define TOP_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_F) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_F))
+..\application\chassis_task.c(515): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+          chassis_move_control_loop->max_wheel_speed = 1.5 * 
+AX_WHEEL_SPEED;
+..\application\chassis_task.c: 4 warnings, 0 errors
+compiling chassis_behaviour.c...
+..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
+  extern void software_reset();
+..\application\chassis_behaviour.h(88): warning:  #47-D: incompatible redefinition of macro "SWING_KEY"  (declared at line 85 of "..\application\chassis_task.h")
+  #define SWING_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_C) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_C))
+..\application\chassis_behaviour.h(90): warning:  #47-D: incompatible redefinition of macro "TOP_KEY"  (declared at line 87 of "..\application\chassis_task.h")
+  #define TOP_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_F) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_F))
+..\application\chassis_behaviour.c: 3 warnings, 0 errors
 compiling freertos.c...
 ..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
   extern void software_reset();
@@ -40,6 +59,28 @@ compiling freertos.c...
       
 sThreadDef(UI, ui_task, osPriorityNormal, 0, 512);
 ../Src/freertos.c: 3 warnings, 0 errors
+compiling gimbal_behaviour.c...
+..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
+  extern void software_reset();
+..\application\vision.h(142): warning:  #1295-D: Deprecated declaration vision_if_find_target - give arg types
+  bool_t vision_if_find_target();
+..\application\vision.h(146): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\application\gimbal_behaviour.c(213): warning:  #177-D: function "gimbal_auto_control"  was declared but never referenced
+  static void gimbal_auto_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *gimbal_control_set);
+..\application\gimbal_behaviour.c: 4 warnings, 0 errors
+compiling main.c...
+..\application\vision.h(142): warning:  #1295-D: Deprecated declaration vision_if_find_target - give arg types
+  bool_t vision_if_find_target();
+..\application\vision.h(146): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
+  extern void software_reset();
+../Src/main.c(102): warning:  #9-D: nested comment is not allowed
+    /* USER CODE END 1 */
+../Src/main.c(152): warning:  #223-D: function "vision_init" declared implicitly
+      vision_init();
+../Src/main.c: 5 warnings, 0 errors
 compiling referee_control.c...
 ..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
   extern void software_reset();
@@ -71,14 +112,6 @@ RIGGER_SPEED_TO_RADIO};
 ..\application\referee_control.c(222): warning:  #1-D: last line of file ends without a newline
   }
 ..\application\referee_control.c: 7 warnings, 0 errors
-compiling chassis_behaviour.c...
-..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
-  extern void software_reset();
-..\application\chassis_behaviour.h(88): warning:  #47-D: incompatible redefinition of macro "SWING_KEY"  (declared at line 85 of "..\application\chassis_task.h")
-  #define SWING_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_C) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_C))
-..\application\chassis_behaviour.h(90): warning:  #47-D: incompatible redefinition of macro "TOP_KEY"  (declared at line 87 of "..\application\chassis_task.h")
-  #define TOP_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_F) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_F))
-..\application\chassis_behaviour.c: 3 warnings, 0 errors
 compiling gimbal_task.c...
 ..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
   extern void software_reset();
@@ -91,39 +124,6 @@ compiling gimbal_task.c...
 ..\application\gimbal_task.c(221): warning:  #177-D: variable "shoot_can_set_current"  was declared but never referenced
   static int16_t yaw_can_set_current = 0, pitch_can_set_current = 0, shoot_can_set_current = 0;
 ..\application\gimbal_task.c: 5 warnings, 0 errors
-compiling main.c...
-..\application\vision.h(142): warning:  #1295-D: Deprecated declaration vision_if_find_target - give arg types
-  bool_t vision_if_find_target();
-..\application\vision.h(146): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
-  extern void software_reset();
-../Src/main.c(102): warning:  #9-D: nested comment is not allowed
-    /* USER CODE END 1 */
-../Src/main.c(152): warning:  #223-D: function "vision_init" declared implicitly
-      vision_init();
-../Src/main.c: 5 warnings, 0 errors
-compiling chassis_task.c...
-..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
-  extern void software_reset();
-..\application\chassis_behaviour.h(88): warning:  #47-D: incompatible redefinition of macro "SWING_KEY"  (declared at line 85 of "..\application\chassis_task.h")
-  #define SWING_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_C) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_C))
-..\application\chassis_behaviour.h(90): warning:  #47-D: incompatible redefinition of macro "TOP_KEY"  (declared at line 87 of "..\application\chassis_task.h")
-  #define TOP_KEY ((chassis_move.chassis_RC->key.v  & KEY_PRESSED_OFFSET_F) && !(chassis_move.chassis_last_key_v & KEY_PRESSED_OFFSET_F))
-..\application\chassis_task.c(515): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          chassis_move_control_loop->max_wheel_speed = 1.5 * 
-AX_WHEEL_SPEED;
-..\application\chassis_task.c: 4 warnings, 0 errors
-compiling gimbal_behaviour.c...
-..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
-  extern void software_reset();
-..\application\vision.h(142): warning:  #1295-D: Deprecated declaration vision_if_find_target - give arg types
-  bool_t vision_if_find_target();
-..\application\vision.h(146): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\application\gimbal_behaviour.c(213): warning:  #177-D: function "gimbal_auto_control"  was declared but never referenced
-  static void gimbal_auto_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *gimbal_control_set);
-..\application\gimbal_behaviour.c: 4 warnings, 0 errors
 compiling servo_task.c...
 ..\application\gimbal_task.h(337): warning:  #1295-D: Deprecated declaration software_reset - give arg types
   extern void software_reset();
@@ -137,7 +137,7 @@ compiling shoot_task.c...
   }
 ..\application\shoot_task.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=114196 RO-data=14764 RW-data=1440 ZI-data=59272  
+Program Size: Code=114192 RO-data=14768 RW-data=1440 ZI-data=59272  
 FromELF: creating hex file...
 "standard_tpye_c\standard_tpye_c.axf" - 0 Error(s), 36 Warning(s).
 
@@ -151,13 +151,13 @@ Package Vendor: ARM
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_standard_robot
-  D:\EnglishPath\MDK5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
-  D:\EnglishPath\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>
