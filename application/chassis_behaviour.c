@@ -171,7 +171,7 @@ void chassis_behaviour_mode_set(chassis_move_t *chassis_move_mode)
     if (switch_is_up(chassis_move_mode->chassis_RC->rc.s[CHASSIS_MODE_CHANNEL]))
     {    
        //chassis_behaviour_mode = CHASSIS_ENGINEER_FOLLOW_CHASSIS_YAW;    
-       chassis_behaviour_mode =CHASSIS_NO_FOLLOW_YAW ;
+       chassis_behaviour_mode =CHASSIS_INFANTRY_FOLLOW_GIMBAL_YAW ;
     }
     else if (switch_is_mid(chassis_move_mode->chassis_RC->rc.s[CHASSIS_MODE_CHANNEL]))
     {
@@ -407,11 +407,11 @@ static void chassis_infantry_follow_gimbal_yaw_control(fp32 *vx_set, fp32 *vy_se
    
     /**************************小陀螺控制输入********************************/
     //单击F开启和关闭小陀螺
-    if(TOP_KEY && top_switch == 0 )  //开启小陀螺
+    if((TOP_KEY || switch_is_up(chassis_move_rc_to_vector->chassis_RC->rc.s[CHASSIS_MODE_CHANNEL])) && top_switch == 0 )  //开启小陀螺
     {
         top_switch = 1;
     }
-    else if(TOP_KEY && top_switch == 1 ) //关闭小陀螺
+    else if((TOP_KEY || switch_is_mid(chassis_move_rc_to_vector->chassis_RC->rc.s[CHASSIS_MODE_CHANNEL])) && top_switch == 1 ) //关闭小陀螺
     {
         top_switch = 0;
     }
